@@ -99,6 +99,25 @@ func main() {
 					return nil
 				},
 			},
+			{
+				Name:    "numeric",
+				Aliases: []string{"a"},
+				Usage:   "generate random number",
+				Flags: []cli.Flag{
+					&cli.IntFlag{
+						Name:    "length",
+						Aliases: []string{"l"},
+						Value:   10,
+						Usage:   "length",
+					},
+				},
+				Action: func(c *cli.Context) error {
+					l := validatedLength(c.Int("length"))
+					r := strand.Numeric(l)
+					fmt.Println(r)
+					return nil
+				},
+			},
 		},
 	}
 
