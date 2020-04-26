@@ -45,18 +45,19 @@ func main() {
 						Usage:   "length",
 					},
 					&cli.StringFlag{
-						Name:  "case",
-						Value: "",
-						Usage: "is lower/upper case letters",
+						Name:    "case",
+						Aliases: []string{"c"},
+						Value:   "",
+						Usage:   "is lower/upper case letters",
 					},
 				},
 				Action: func(c *cli.Context) error {
 					l := validatedLength(c.Int("length"))
 					alphacase := validatedCase(c.String("case"))
 					r := ""
-					if alphacase == "LOWER" {
+					if alphacase == LOWER {
 						r = strand.AlphaLower(l)
-					} else if alphacase == "UPPER" {
+					} else if alphacase == UPPER {
 						r = strand.AlphaUpper(l)
 					} else {
 						r = strand.Alpha(l)

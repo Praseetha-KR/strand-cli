@@ -12,25 +12,25 @@ func validatedLength(l int) int {
 	return l
 }
 
-func validatedCase(c string) string {
+func validatedCase(c string) int {
 	switch alphacase := strings.ToLower(c); alphacase {
 	case
 		"lower",
 		"lowercase",
 		"l":
-		return "LOWER"
+		return LOWER
 	case
 		"upper",
 		"uppercase",
 		"u":
-		return "UPPER"
+		return UPPER
 	case
 		"all",
 		"a",
 		"":
-		return ""
+		return ALL
 	default:
 		log.Fatal("Invalid value for case flag: supported are lower|upper|L|U")
 	}
-	return ""
+	return ALL
 }
