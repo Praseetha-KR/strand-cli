@@ -44,20 +44,27 @@ func main() {
 						Value:   10,
 						Usage:   "length",
 					},
-					&cli.StringFlag{
-						Name:    "case",
-						Aliases: []string{"c"},
-						Value:   "",
-						Usage:   "is lower/upper case letters",
+					&cli.BoolFlag{
+						Name:    "lower",
+						Aliases: []string{"low"},
+						Value:   false,
+						Usage:   "is lower",
+					},
+					&cli.BoolFlag{
+						Name:    "upper",
+						Aliases: []string{"up"},
+						Value:   false,
+						Usage:   "is upper",
 					},
 				},
 				Action: func(c *cli.Context) error {
 					l := validatedLength(c.Int("length"))
-					alphacase := validatedCase(c.String("case"))
+					isLower := c.Bool("lower")
+					isUpper := c.Bool("upper")
 					r := ""
-					if alphacase == LOWER {
+					if isLower && !isUpper {
 						r = strand.AlphaLower(l)
-					} else if alphacase == UPPER {
+					} else if isUpper && !isLower {
 						r = strand.AlphaUpper(l)
 					} else {
 						r = strand.Alpha(l)
@@ -77,20 +84,27 @@ func main() {
 						Value:   10,
 						Usage:   "length",
 					},
-					&cli.StringFlag{
-						Name:    "case",
-						Aliases: []string{"c"},
-						Value:   "",
-						Usage:   "is lower/upper case letters",
+					&cli.BoolFlag{
+						Name:    "lower",
+						Aliases: []string{"low"},
+						Value:   false,
+						Usage:   "is lower",
+					},
+					&cli.BoolFlag{
+						Name:    "upper",
+						Aliases: []string{"up"},
+						Value:   false,
+						Usage:   "is upper",
 					},
 				},
 				Action: func(c *cli.Context) error {
 					l := validatedLength(c.Int("length"))
-					alphacase := validatedCase(c.String("case"))
+					isLower := c.Bool("lower")
+					isUpper := c.Bool("upper")
 					r := ""
-					if alphacase == LOWER {
+					if isLower && !isUpper {
 						r = strand.AlphaLowerNumeric(l)
-					} else if alphacase == UPPER {
+					} else if isUpper && !isLower {
 						r = strand.AlphaUpperNumeric(l)
 					} else {
 						r = strand.AlphaNumeric(l)
