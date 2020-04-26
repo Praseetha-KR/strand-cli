@@ -156,6 +156,25 @@ func main() {
 					return nil
 				},
 			},
+			{
+				Name:    "binary",
+				Aliases: []string{"b"},
+				Usage:   "generate random string composed of binary digits",
+				Flags: []cli.Flag{
+					&cli.IntFlag{
+						Name:    "length",
+						Aliases: []string{"l"},
+						Value:   10,
+						Usage:   "length",
+					},
+				},
+				Action: func(c *cli.Context) error {
+					l := validatedLength(c.Int("length"))
+					r := strand.Binary(l)
+					fmt.Println(r)
+					return nil
+				},
+			},
 		},
 	}
 
