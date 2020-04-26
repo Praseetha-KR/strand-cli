@@ -1,6 +1,7 @@
 # strand-cli
 
-CLI tool to generate random strings
+CLI tool to generate random strings using [strand](https://github.com/Praseetha-KR/strand) package
+
 
 Supported random types:
 - String
@@ -23,9 +24,53 @@ For installation instructions for binaries, please visit the [Releases Page](htt
 
 ### Build & install:
 
+#### Build:
+
 ```
 $ make
 ```
+
+#### Install:
+
+```
+$ make install_<os>_<platform>
+```
+
+> eg: For OSX
+>
+> ```
+> $ make install_darwin_amd64
+> ```
+
+Supported OS-Platform values are listed below:
+
+<table>
+    <thead>
+        <tr>
+            <th>OS</th>
+            <th>Platform</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>darwin</td>
+            <td>amd64</td>
+        </tr>
+        <tr>
+            <td rowspan="4">linux</td>
+            <td>amd64</td>
+        </tr>
+        <tr>
+            <td>386</td>
+        </tr>
+        <tr>
+            <td>arm64</td>
+        </tr>
+        <tr>
+            <td>arm</td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## Usage
@@ -33,14 +78,24 @@ $ make
 ```bash
 $ strand
 
+            $$\                                        $$\
+            $$ |                                       $$ |
+ $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$\  $$$$$$$\   $$$$$$$ |
+$$  _____|\_$$  _|  $$  __$$\ \____$$\ $$  __$$\ $$  __$$ |
+\$$$$$$\    $$ |    $$ |  \__|$$$$$$$ |$$ |  $$ |$$ /  $$ |
+ \____$$\   $$ |$$\ $$ |     $$  __$$ |$$ |  $$ |$$ |  $$ |
+$$$$$$$  |  \$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |
+\_______/    \____/ \__|      \_______|\__|  \__| \_______|
+
+
 NAME:
    strand - Random String Generator
 
 USAGE:
-   strand [global options] command [command options] [arguments...]
+   strand_darwin_amd64 [global options] command [command options] [arguments...]
 
 VERSION:
-   0.0.1
+   v0.0.3
 
 AUTHOR:
    Praseetha KR <praseetha04@gmail.com>
