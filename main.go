@@ -11,7 +11,7 @@ import (
 const (
 	appName     = "strand"
 	description = "Random String Generator"
-	version     = "0.0.1"
+	version     = "v0.0.2"
 	author      = "Praseetha KR"
 	email       = "praseetha04@gmail.com"
 )
