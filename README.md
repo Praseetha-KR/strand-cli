@@ -17,10 +17,14 @@ Supported random types:
 
 ## Installation
 
-Build & install:
+### Binaries:
+
+For installation instructions for binaries, please visit the [Releases Page](https://github.com/Praseetha-KR/strand-cli/releases).
+
+### Build & install:
 
 ```
-make
+$ make
 ```
 
 
