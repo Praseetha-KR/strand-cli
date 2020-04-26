@@ -68,7 +68,7 @@ func main() {
 			},
 			{
 				Name:    "alphanumeric",
-				Aliases: []string{"a"},
+				Aliases: []string{"an"},
 				Usage:   "generate random alphanumeric string",
 				Flags: []cli.Flag{
 					&cli.IntFlag{
@@ -101,7 +101,7 @@ func main() {
 			},
 			{
 				Name:    "numeric",
-				Aliases: []string{"a"},
+				Aliases: []string{"n"},
 				Usage:   "generate random number",
 				Flags: []cli.Flag{
 					&cli.IntFlag{
@@ -114,6 +114,25 @@ func main() {
 				Action: func(c *cli.Context) error {
 					l := validatedLength(c.Int("length"))
 					r := strand.Numeric(l)
+					fmt.Println(r)
+					return nil
+				},
+			},
+			{
+				Name:    "urlsafe",
+				Aliases: []string{"u"},
+				Usage:   "generate random URL safe string",
+				Flags: []cli.Flag{
+					&cli.IntFlag{
+						Name:    "length",
+						Aliases: []string{"l"},
+						Value:   10,
+						Usage:   "length",
+					},
+				},
+				Action: func(c *cli.Context) error {
+					l := validatedLength(c.Int("length"))
+					r := strand.URLSafe(l)
 					fmt.Println(r)
 					return nil
 				},
