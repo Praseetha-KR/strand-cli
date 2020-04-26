@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -11,9 +12,21 @@ import (
 const (
 	appName     = "strand"
 	description = "Random String Generator"
-	version     = "v0.0.2"
+	version     = "v0.0.3"
 	author      = "Praseetha KR"
 	email       = "praseetha04@gmail.com"
+	header      = `
+            $$\                                        $$\
+            $$ |                                       $$ |
+ $$$$$$$\ $$$$$$\    $$$$$$\  $$$$$$\  $$$$$$$\   $$$$$$$ |
+$$  _____|\_$$  _|  $$  __$$\ \____$$\ $$  __$$\ $$  __$$ |
+\$$$$$$\    $$ |    $$ |  \__|$$$$$$$ |$$ |  $$ |$$ /  $$ |
+ \____$$\   $$ |$$\ $$ |     $$  __$$ |$$ |  $$ |$$ |  $$ |
+$$$$$$$  |  \$$$$  |$$ |     \$$$$$$$ |$$ |  $$ |\$$$$$$$ |
+\_______/    \____/ \__|      \_______|\__|  \__| \_______|
+
+
+`
 )
 
 func main() {
@@ -45,5 +58,6 @@ func newApp() *cli.App {
 			cmd.FromCmd,
 		},
 	}
+	cli.AppHelpTemplate = fmt.Sprintf(`%s%s`, header, cli.AppHelpTemplate)
 	return app
 }
