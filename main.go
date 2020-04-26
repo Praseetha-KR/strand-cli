@@ -36,7 +36,7 @@ func main() {
 			{
 				Name:    "alpha",
 				Aliases: []string{"a"},
-				Usage:   "generate random number",
+				Usage:   "generate random string from alphabet",
 				Flags: []cli.Flag{
 					&cli.IntFlag{
 						Name:    "length",
@@ -61,6 +61,39 @@ func main() {
 						r = strand.AlphaUpper(l)
 					} else {
 						r = strand.Alpha(l)
+					}
+					fmt.Println(r)
+					return nil
+				},
+			},
+			{
+				Name:    "alphanumeric",
+				Aliases: []string{"a"},
+				Usage:   "generate random alphanumeric string",
+				Flags: []cli.Flag{
+					&cli.IntFlag{
+						Name:    "length",
+						Aliases: []string{"l"},
+						Value:   10,
+						Usage:   "length",
+					},
+					&cli.StringFlag{
+						Name:    "case",
+						Aliases: []string{"c"},
+						Value:   "",
+						Usage:   "is lower/upper case letters",
+					},
+				},
+				Action: func(c *cli.Context) error {
+					l := validatedLength(c.Int("length"))
+					alphacase := validatedCase(c.String("case"))
+					r := ""
+					if alphacase == LOWER {
+						r = strand.AlphaLowerNumeric(l)
+					} else if alphacase == UPPER {
+						r = strand.AlphaUpperNumeric(l)
+					} else {
+						r = strand.AlphaNumeric(l)
 					}
 					fmt.Println(r)
 					return nil
