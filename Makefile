@@ -24,13 +24,16 @@ all: build
 
 build: build_darwin build_linux build_windows
 
-build_darwin: build_darwin_amd64
+build_darwin: build_darwin_amd64 build_darwin_arm64
 build_linux: build_linux_amd64 build_linux_arm64 build_linux_arm build_linux_386
 build_windows: build_windows_amd64 build_windows_386
 
 
 build_darwin_amd64: mkdir_bin
 	GOOS=$(OS_DARWIN) GOARCH=amd64 $(GOBUILD) -o $(BUILD_DIR)/$(BINARY_DARWIN)_amd64 -ldflags="$(LDFLAGS)"
+
+build_darwin_arm64: mkdir_bin
+	GOOS=$(OS_DARWIN) GOARCH=arm64 $(GOBUILD) -o $(BUILD_DIR)/$(BINARY_DARWIN)_arm64 -ldflags="$(LDFLAGS)"
 
 
 build_linux_amd64: mkdir_bin
